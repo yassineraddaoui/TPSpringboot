@@ -3,6 +3,7 @@ package com.springboot.app.Controllers;
 import com.springboot.app.Entities.Student;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 @RestController
@@ -13,7 +14,11 @@ public class StudentController {
     public Student studentQueryParam(
             @RequestParam(name = "firstName") String firstName,
             @RequestParam(name = "lastName") String lastName) {
-        return new Student(firstName, lastName);
+
+        return Student.builder()
+                .firstName("yassine")
+                .lastName("raddaoui")
+                .build();
     }
 
     @GetMapping("/{firstName}/{lastName}")
